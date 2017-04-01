@@ -1,0 +1,53 @@
+<div class='row'>
+  <div class='col-md-8 col-md-offset-2'>
+
+    <div class='row'>
+      <form (ngSubmit)='submit()'>
+        <div class='col-md-4'>
+          <label>Nama</label>
+          <input type='text' class='form-control' [(ngModel)]="nama" name='nama' placeholder="Nama" required/>
+        </div>
+        <div class='col-md-4'>
+          <label>Harga</label>
+          <input type='number' class='form-control' [(ngModel)]="harga" name='haraga' placeholder="Harga" required/>
+        </div>
+        <div class='col-md-4'>
+          <label>Detail</label>
+          <input type='text' class='form-control' [(ngModel)]="detail" name='detail' placeholder="Detail" required/>
+        </div>
+
+        <div class='col-md-4 col-md-offset-4'>
+          <br />
+          <p class='text-danger' *ngIf="!nama || !harga || !detail">Tolong Isi Semua Data</p>
+          <button
+           [disabled]='!nama || !harga || !detail'
+           type='submit' class='btn btn-primary btn-block'>Submit</button>
+        </div>
+        <div class='col-md-2 col-md-5'>
+        </div>
+      </form>
+    </div>
+
+    <div class='row col-md-12'>
+      <div class='text-center'>
+        <h2 class='text-primary'>Total : <b>{{total}}</b></h2>
+
+      </div>
+
+      <div *ngFor="let item of dataList">
+        <div class="col-md-4">
+          <div class="bs-callout bs-callout-danger" id=callout-progress-animation-css3>
+            <h4 class="text-info">{{item.harga}}</h4>
+            <p class="text-uppercase">
+              {{item.nama}}
+            </p>
+            <p class="text-lowercase">
+              {{item.detail}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
